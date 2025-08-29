@@ -33,3 +33,5 @@ class NPC(Entity):
         self.max_speed = max_speed
         self.mass = mass
         self.volume = volume
+
+
