@@ -13,10 +13,14 @@ class NPC(Entity):
         start_pos_x: float,
         start_pos_y: float,
         collidable: bool,
-        hp: float | None = None,
-        max_speed: float | None = None,
-        mass: float | None = None,
-        volume: float | None = None
+        max_hp: float | None,
+        hp: float | None,
+        max_speed: float | None,
+        mass: float | None,
+        volume: float | None,
+        entity_type: tuple[str, ...] = ('neutral', 'enemy', 'friendly'),
+        is_alive: bool = True
+
     ) -> None:
 
         super().__init__(
@@ -26,15 +30,30 @@ class NPC(Entity):
             img_path,
             start_pos_x,
             start_pos_y,
-            collidable
+            collidable,
+            max_hp,
+            hp,
+            max_speed,
+            mass,
+            volume
         )
 
-        self.hp = hp
-        self.max_speed = max_speed
-        self.mass = mass
-        self.volume = volume
+        self.entity_type = entity_type
+        self.is_alive = is_alive
 
+    def movements(self):
+        pass
 
+    def collision(self):
+        pass
+
+    def animation(self, delta_time):
+        pass
+
+    def update(self, delta_time):
+        self.movements()
+        self.collision()
+        self.animation(delta_time)
 
 
 

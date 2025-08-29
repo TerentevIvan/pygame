@@ -13,6 +13,7 @@ class Entity(AbsEntity):
         start_pos_x: float,
         start_pos_y: float,
         collidable: bool,
+        max_hp: float | None = None,
         hp: float | None = None,
         max_speed: float | None = None,
         mass: float | None = None,
@@ -29,7 +30,22 @@ class Entity(AbsEntity):
             collidable
         )
 
+        self.max_hp = max_hp
         self.hp = hp
         self.max_speed = max_speed
         self.mass = mass
         self.volume = volume
+
+    def movements(self):
+        pass
+
+    def collision(self):
+        pass
+
+    def animation(self, delta_time):
+        pass
+
+    def update(self, delta_time):
+        self.movements()
+        self.collision()
+        self.animation(delta_time)
