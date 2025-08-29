@@ -1,9 +1,9 @@
 import pygame
 
-from AbsEntity import AbsEntity
+from Entity import Entity
 
 
-class Entity(AbsEntity):
+class NPC(Entity):
     def __init__(
         self,
         entity_name: str,
