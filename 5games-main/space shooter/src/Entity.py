@@ -28,8 +28,10 @@ class Entity(AbsEntity):
             start_pos_x,
             start_pos_y,
             collidable
+
         )
 
+        self.facing_vector2 = self.facing_vector2
         self.max_hp = max_hp
         self.hp = hp
         self.max_speed = max_speed

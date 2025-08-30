@@ -11,7 +11,7 @@ class AbsEntity(pygame.sprite.Sprite):
         img_path: str,
         start_pos_x: float,
         start_pos_y: float,
-        collidable: bool,
+        collidable: bool
     ) -> None:
 
         super().__init__(groups)
