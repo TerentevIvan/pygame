@@ -1,9 +1,9 @@
 import pygame
 
-from NPC import NPC
+from Entity import Entity
 
 
-class Player(NPC):
+class Player(Entity):
     def __init__(
         self,
         entity_name: str,
@@ -18,12 +18,11 @@ class Player(NPC):
         max_speed: float | None,
         mass: float | None,
         volume: float | None,
-        entity_type: tuple[str, ...],
-        is_alive: bool,
+        is_alive: bool = True,
         attack_cooldown: float = 200.0,
         can_attack: bool = True
-
     ) -> None:
+
         super().__init__(
             entity_name,
             entity_id,
@@ -36,11 +35,10 @@ class Player(NPC):
             hp,
             max_speed,
             mass,
-            volume,
-            entity_type,
-            is_alive
+            volume
         )
 
+        self.is_alive = is_alive
         self.attack_cooldown = attack_cooldown
         self.can_attack = can_attack
 
@@ -69,6 +67,3 @@ class Player(NPC):
         self.collision()
         self.input(delta_time)
         self.animation(delta_time)
-
-
-
